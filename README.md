@@ -15,13 +15,10 @@ Quoting the [ACME DNS-01 challenge]:
 Build the container image `cert-manager-webhook-duckdns:latest`:
 
     make build
-
 ## Image
 Ready made images are hosted on Docker Hub ([image tags]). Use at your own risk:
-Updated every Sunday. Latest 2 alpine images and go 1.24 (calculated from defined version in go code)
 
-    lalberslz4/cert-manager-webhook-duckdns
-
+    ebrianne/cert-manager-webhook-duckdns
 ## Compatibility
 This webhook has been tested with [cert-manager] v1.2.0 and Kubernetes v0.17.x on `amd64`. In theory it should work on other hardware platforms as well but no steps have been taken to verify this. Please drop me a note if you had success.
 
@@ -29,13 +26,13 @@ This webhook has been tested with [cert-manager] v1.2.0 and Kubernetes v0.17.x o
 
 1. Install [cert-manager] with [Helm]:
 
-        helm repo add github https://lucas-albers-lz4.github.io/cert-manager-webhook-duckdns/charts/
+        helm repo add jetstack https://charts.jetstack.io
         helm repo update
 
         helm install \
         cert-manager jetstack/cert-manager \
         --namespace cert-manager \
-        --version v1.2.4 \
+        --version v1.2.0 \
         --set 'extraArgs={--dns01-recursive-nameservers=8.8.8.8:53\,1.1.1.1:53}' \
         --create-namespace \
         --set installCRDs=true
@@ -46,12 +43,12 @@ This webhook has been tested with [cert-manager] v1.2.0 and Kubernetes v0.17.x o
 
     **Note**: ensure that the custom CRDS of cert-manager match the major version of the cert-manager release by comparing the URL of the CRDS with the helm info of the charts app version:
 
-            helm search repo github
+            helm search repo jetstack
 
     Example output:
 
             NAME                    CHART VERSION   APP VERSION     DESCRIPTION
-            jetstack/cert-manager	  v1.2.4       	  v1.2.4     	    A Helm chart for cert-manager
+            jetstack/cert-manager	  v1.2.0       	  v1.2.0     	    A Helm chart for cert-manager
 
     Check the state and ensure that all pods are running fine (watch out for any issues regarding the `cert-manager-webhook-` pod  and its volume mounts):
 
@@ -140,7 +137,7 @@ TEST_ZONE_NAME=example.com. DNS_NAME=example.com go test -v .
 [DuckDNS]: https://www.duckdns.org
 [DuckDNS API]: https://www.duckdns.org/spec.jsp
 [Helm]: https://helm.sh
-[image tags]: https://hub.docker.com/repository/docker/lalberslz4/cert-manager-webhook-duckdns
+[image tags]: https://hub.docker.com/repository/docker/ebrianne/cert-manager-webhook-duckdns
 [Kubernetes]: https://kubernetes.io/
 [RBAC Authorization]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 [setting-nameservers-for-dns01-self-check]: https://cert-manager.io/docs/configuration/acme/dns01/#setting-nameservers-for-dns01-self-check
