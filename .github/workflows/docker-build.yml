@@ -10,6 +10,8 @@ on:
   # For automatic builds of new Go/Alpine versions
   schedule:
     - cron: '0 0 * * 0'  # Weekly on Sundays
+  # Add this for manual triggering
+  workflow_dispatch:
 
 env:
   REGISTRY: docker.io
