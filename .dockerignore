@@ -1,0 +1,3 @@
+# Ignore sensitive environment files
+testdata/duckdns/env.testconfig
+testdata/duckdns/api-key.yml

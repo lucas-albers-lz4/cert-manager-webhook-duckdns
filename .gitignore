@@ -8,3 +8,7 @@ __main__/
 
 # Test binary, build
 _out/
+
+# Test config for Unit Test
+testdata/duckdns/env.testconfig
+testdata/duckdns/api-key.yml
