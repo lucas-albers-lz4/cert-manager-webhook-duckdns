@@ -1,0 +1,44 @@
+ARG GO_VERSION=1.24
+ARG ALPINE_VERSION=3.21
+FROM golang:${GO_VERSION}-alpine${ALPINE_VERSION} AS build_deps
+
+RUN apk add --no-cache git bash curl tar
+
+WORKDIR /workspace
+ENV GO111MODULE=on
+ENV GOPATH="/workspace/.go"
+
+COPY go.mod .
+COPY go.sum .
+
+RUN go mod download
+
+FROM build_deps AS build
+
+COPY . .
+
+# Download dependencies
+RUN go mod download
+
+# Set up test data
+RUN cp testdata/duckdns/api-key.yml.sample testdata/duckdns/api-key.yml
+RUN rm testdata/duckdns/api-key.yml.sample
+
+COPY scripts/fetch-test-binaries.sh scripts/fetch-test-binaries.sh 
+# Make the fetch-test-binaries script executable
+RUN chmod +x scripts/fetch-test-binaries.sh
+
+# Fetch test binaries; On alpine we use apk to install our required binaries
+RUN ./scripts/fetch-test-binaries.sh
+
+# Enable debug logging
+ENV ACME_CERT_MANAGER_WEBHOOK_DUCKDNS_DEBUG=true
+
+# Updated CMD to correctly replace the token
+CMD bash -c '\
+    if [ -n "$DUCKDNS_TOKEN" ]; then \
+        echo "Replacing DuckDNS token in api-key.yml"; \
+        sed -i "s|duckdns-token: <BASE64 API KEY>|duckdns-token: $(echo -n "$DUCKDNS_TOKEN" | base64)|g" testdata/duckdns/api-key.yml; \
+    fi && \
+    TEST_ZONE_NAME=$TEST_ZONE_NAME DNS_NAME=$DNS_NAME go test -v'
+
