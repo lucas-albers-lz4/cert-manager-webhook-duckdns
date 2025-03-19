@@ -1,4 +1,4 @@
-IMAGE_NAME ?= "ebrianne/cert-manager-webhook-duckdns"
+IMAGE_NAME ?= "lucas-albers-lz4/cert-manager-webhook-duckdns"
 IMAGE_TAG := "latest"
 PLATFORMS := "linux/amd64,linux/arm64"
 BUILDKIT_COMPRESSION := "zstd"
@@ -47,3 +47,13 @@ docker-run-unittest:
 	source testdata/duckdns/env.testconfig && docker run --rm -e TEST_ZONE_NAME=$${TEST_ZONE_NAME} -e DNS_NAME=$${DNS_NAME} -e DUCKDNS_TOKEN=$${DUCKDNS_TOKEN} cert-manager-webhook-duckdns:test
 
 docker-unittest: check-env-file docker-build-unittest docker-run-unittest
+
+# quick compile works on macos
+compile:
+	GOOS=linux GOARCH=arm64 CGO_ENABLED=0 go build -o webhook-arm64 -ldflags '-w -extldflags "-static"'
+
+github-listbuild:
+	gh run list --workflow=docker-build.yml  --repo github.com/$(IMAGE_NAME)
+
+github-build:
+	gh workflow run "Build and Push Docker Images" --repo github.com/$(IMAGE_NAME) --ref master
