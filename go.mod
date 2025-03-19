@@ -7,8 +7,8 @@ require (
 	github.com/jetstack/cert-manager v1.2.1-0.20210324111646-720428406370
 	github.com/pkg/errors v0.9.1
 	k8s.io/apiextensions-apiserver v0.19.0
-	k8s.io/apimachinery v0.19.0
-	k8s.io/client-go v0.19.0
+	k8s.io/apimachinery v0.19.6
+	k8s.io/client-go v0.19.6
 	k8s.io/klog/v2 v2.8.0
 )
 
@@ -60,10 +60,10 @@ require (
 	go.uber.org/multierr v1.1.0 // indirect
 	go.uber.org/zap v1.10.0 // indirect
 	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9 // indirect
-	golang.org/x/net v0.0.0-20200822124328-c89045814202 // indirect
+	golang.org/x/net v0.0.0-20201110031124-69a78807bb2b // indirect
 	golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d // indirect
 	golang.org/x/sync v0.0.0-20190911185100-cd5d95a43a6e // indirect
-	golang.org/x/sys v0.0.0-20200622214017-ed371f2e16b4 // indirect
+	golang.org/x/sys v0.0.0-20201112073958-5cba982894dd // indirect
 	golang.org/x/text v0.3.3 // indirect
 	golang.org/x/time v0.0.0-20200630173020-3af7569d3a1e // indirect
 	golang.org/x/xerrors v0.0.0-20191204190536-9bdfabe68543 // indirect
@@ -74,7 +74,7 @@ require (
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0 // indirect
 	gopkg.in/yaml.v2 v2.3.0 // indirect
-	k8s.io/api v0.19.0 // indirect
+	k8s.io/api v0.19.6 // indirect
 	k8s.io/apiserver v0.19.0 // indirect
 	k8s.io/component-base v0.19.0 // indirect
 	k8s.io/kube-aggregator v0.19.0 // indirect
