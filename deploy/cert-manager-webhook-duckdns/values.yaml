@@ -29,8 +29,8 @@ clusterIssuer:
     create: false
     
 image:
-  repository: ebrianne/cert-manager-webhook-duckdns
-  tag: v1.2.3
+  repository: lalberslz4/cert-manager-webhook-duckdns
+  tag: alpine3.21
   pullPolicy: IfNotPresent 
   # pullSecret: ""
 
