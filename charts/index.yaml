@@ -1,0 +1,50 @@
+apiVersion: v1
+entries:
+  cert-manager-webhook-duckdns:
+  - apiVersion: v1
+    appVersion: v1.2.4
+    created: "2025-03-25T14:23:43.587068-06:00"
+    description: A Helm chart for cert manager webhook solver for ACME DNS01 challenge
+      via DuckDNS
+    digest: 6b501136b107522269dda79f46973eb3f3f220feba7c2d179bb03b8b6c8f2cc8
+    home: https://github.com/ebrianne/cert-manager-webhook-duckdns
+    icon: https://raw.githubusercontent.com/jetstack/cert-manager/master/logo/logo.png
+    keywords:
+    - cert-manager
+    - webhook
+    - letsencrypt
+    - tls
+    maintainers:
+    - email: eldwan35@gmail.com
+      name: Eldwan Brianne
+      url: https://ebrianne.technolab.duckdns.org
+    name: cert-manager-webhook-duckdns
+    sources:
+    - https://github.com/lalberslz4/cert-manager-webhook-duckdns
+    urls:
+    - lalberslz4.github.io/cert-manager-webhook-duckdns/cert-manager-webhook-duckdns-v1.2.4.tgz
+    version: v1.2.4
+  - apiVersion: v1
+    appVersion: v1.2.4
+    created: "2025-03-25T14:23:43.587504-06:00"
+    description: A Helm chart for cert manager webhook solver for ACME DNS01 challenge
+      via DuckDNS
+    digest: a670b6d86c57200e85eb49cb2dd9215641c00deab35ac1d548fda8fc74a496d2
+    home: https://github.com/ebrianne/cert-manager-webhook-duckdns
+    icon: https://raw.githubusercontent.com/jetstack/cert-manager/master/logo/logo.png
+    keywords:
+    - cert-manager
+    - webhook
+    - letsencrypt
+    - tls
+    maintainers:
+    - email: eldwan35@gmail.com
+      name: Eldwan Brianne
+      url: https://ebrianne.technolab.duckdns.org
+    name: cert-manager-webhook-duckdns
+    sources:
+    - https://github.com/lalberslz4/cert-manager-webhook-duckdns
+    urls:
+    - lalberslz4.github.io/cert-manager-webhook-duckdns/charts/cert-manager-webhook-duckdns-v1.2.4.tgz
+    version: v1.2.4
+generated: "2025-03-25T14:23:43.586694-06:00"
