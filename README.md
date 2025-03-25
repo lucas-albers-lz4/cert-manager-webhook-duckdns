@@ -18,7 +18,9 @@ Build the container image `cert-manager-webhook-duckdns:latest`:
 ## Image
 Ready made images are hosted on Docker Hub ([image tags]). Use at your own risk:
 
-    ebrianne/cert-manager-webhook-duckdns
+    lalberslz4/cert-manager-webhook-duckdns
+    Updated every sunday. Supports latest 2 alpine version's and go 1.24 (calculated from defined version in go code)
+
 ## Compatibility
 This webhook has been tested with [cert-manager] v1.2.0 and Kubernetes v0.17.x on `amd64`. In theory it should work on other hardware platforms as well but no steps have been taken to verify this. Please drop me a note if you had success.
 
