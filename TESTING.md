@@ -69,7 +69,7 @@ Replacing DuckDNS token in api-key.yml
     }
 
 I0318 21:13:46.721003   12025 solver.go:127] Presenting txt record: cert-manager-dns01-tests.<REDACTED>.duckdns.org. <REDACTED>.duckdns.org.
-I0318 21:13:46.721069   12025 solver.go:66] Decoded config: {{{duckdns-token} duckdns-token}}
+<REDACTED>
 I0318 21:13:46.729000   12025 solver.go:85] DNSName from ChallengeRequest is <REDACTED>.duckdns.org
 I0318 21:13:46.729105   12025 solver.go:97] Got dns domain from challenge <REDACTED>
 I0318 21:13:46.729113   12025 solver.go:135] Present txt record for domain <REDACTED>
