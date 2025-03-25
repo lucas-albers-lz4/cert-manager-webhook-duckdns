@@ -17,7 +17,7 @@ Build the container image `cert-manager-webhook-duckdns:latest`:
     make build
 ## Image
 Ready made images are hosted on Docker Hub ([image tags]). Use at your own risk:
-Updated every sunday. Supports latest 2 alpine version's and go 1.24 (calculated from defined version in go code)
+Updated every Sunday. Latest 2 alpine images and go 1.24 (calculated from defined version in go code)
 
     lalberslz4/cert-manager-webhook-duckdns
 
