@@ -139,7 +139,7 @@ TEST_ZONE_NAME=example.com. DNS_NAME=example.com go test -v .
 [DuckDNS]: https://www.duckdns.org
 [DuckDNS API]: https://www.duckdns.org/spec.jsp
 [Helm]: https://helm.sh
-[image tags]: https://hub.docker.com/repository/docker/ebrianne/cert-manager-webhook-duckdns
+[image tags]: https://hub.docker.com/repository/docker/lalberslz4/cert-manager-webhook-duckdns
 [Kubernetes]: https://kubernetes.io/
 [RBAC Authorization]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 [setting-nameservers-for-dns01-self-check]: https://cert-manager.io/docs/configuration/acme/dns01/#setting-nameservers-for-dns01-self-check
