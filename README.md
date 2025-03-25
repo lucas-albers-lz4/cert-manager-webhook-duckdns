@@ -22,7 +22,7 @@ Ready made images are hosted on Docker Hub ([image tags]). Use at your own risk:
 ## Compatibility
 This webhook has been tested with [cert-manager] v1.2.0 and Kubernetes v0.17.x on `amd64`. In theory it should work on other hardware platforms as well but no steps have been taken to verify this. Please drop me a note if you had success.
 
-## User later builds with alpine 3.21 and go 1.24 and go module security updates, add these to any of the helm commands. These are built every Sunday
+## Use alpine 3.21, go 1.24 and module updates. Add these to any of the helm commands. These are built every Sunday
 
         --set image.repository=lalberslz4/cert-manager-webhook-duckdns \
         --set image.tag=alpine3.21
