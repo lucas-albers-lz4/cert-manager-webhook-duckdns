@@ -27,7 +27,7 @@ Rebult with alpine 3.21 and go 1.24 (add to helm command below)
     --set image.tag=alpine3.21
 
 ## Compatibility
-This webhook has been tested with [cert-manager] v1.2.0 and Kubernetes v0.17.x on `amd64`. In theory it should work on other hardware platforms as well but no steps have been taken to verify this. Please drop me a note if you had success.
+This webhook has been tested with [cert-manager] v1.2.3 and Kubernetes v0.17.x on `amd64`. In theory it should work on other hardware platforms as well but no steps have been taken to verify this. Please drop me a note if you had success.
 
 ## Install with helm
 
@@ -39,7 +39,7 @@ This webhook has been tested with [cert-manager] v1.2.0 and Kubernetes v0.17.x o
         helm install \
         cert-manager jetstack/cert-manager \
         --namespace cert-manager \
-        --version v1.2.0 \
+        --version v1.2.3 \
         --set 'extraArgs={--dns01-recursive-nameservers=8.8.8.8:53\,1.1.1.1:53}' \
         --create-namespace \
         --set installCRDs=true
@@ -55,7 +55,7 @@ This webhook has been tested with [cert-manager] v1.2.0 and Kubernetes v0.17.x o
     Example output:
 
             NAME                    CHART VERSION   APP VERSION     DESCRIPTION
-            jetstack/cert-manager	  v1.2.0       	  v1.2.0     	    A Helm chart for cert-manager
+            jetstack/cert-manager	  v1.2.3       	  v1.2.3     	    A Helm chart for cert-manager
 
     Check the state and ensure that all pods are running fine (watch out for any issues regarding the `cert-manager-webhook-` pod  and its volume mounts):
 
