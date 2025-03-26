@@ -12,21 +12,22 @@ Quoting the [ACME DNS-01 challenge]:
 > This challenge asks you to prove that you control the DNS for your domain name by putting a specific value in a TXT record under that domain name. It is harder to configure than HTTP-01, but can work in scenarios that HTTP-01 can’t. It also allows you to issue wildcard certificates. After Let’s Encrypt gives your ACME client a token, your client will create a TXT record derived from that token and your account key, and put that record at _acme-challenge.<YOUR_DOMAIN>. Then Let’s Encrypt will query the DNS system for that record. If it finds a match, you can proceed to issue a certificate!
 
 ## Building
-Build the container image `lalberslz4/cert-manager-webhook-duckdns:alpine3.21`:
+Build the container image `cert-manager-webhook-duckdns:latest`:
 
     make build
 ## Image
 Ready made images are hosted on Docker Hub ([image tags]). Use at your own risk:
 
     lalberslz4/cert-manager-webhook-duckdns
+
+## More current Images (Updated weekly)
+Rebult with alpine 3.21 and go 1.24 (add to helm command below)
+
+    --set image.repository=lalberslz4/cert-manager-webhook-duckdns \
+    --set image.tag=alpine3.21
+
 ## Compatibility
 This webhook has been tested with [cert-manager] v1.2.0 and Kubernetes v0.17.x on `amd64`. In theory it should work on other hardware platforms as well but no steps have been taken to verify this. Please drop me a note if you had success.
-
-## Use alpine 3.21, go 1.24 and module updates. Add these to any of the helm commands. These are built every Sunday
-
-        --set image.repository=lalberslz4/cert-manager-webhook-duckdns \
-        --set image.tag=alpine3.21
-
 
 ## Install with helm
 
@@ -38,12 +39,10 @@ This webhook has been tested with [cert-manager] v1.2.0 and Kubernetes v0.17.x o
         helm install \
         cert-manager jetstack/cert-manager \
         --namespace cert-manager \
-        --version v1.2.3 \
+        --version v1.2.0 \
         --set 'extraArgs={--dns01-recursive-nameservers=8.8.8.8:53\,1.1.1.1:53}' \
         --create-namespace \
         --set installCRDs=true
-        --set image.repository=lalberslz4/cert-manager-webhook-duckdns \
-        --set image.tag=alpine3.21
 
         kubectl get pods --namespace cert-manager --watch
 
@@ -56,7 +55,7 @@ This webhook has been tested with [cert-manager] v1.2.0 and Kubernetes v0.17.x o
     Example output:
 
             NAME                    CHART VERSION   APP VERSION     DESCRIPTION
-            jetstack/cert-manager	  v1.2.3       	  v1.2.3     	    A Helm chart for cert-manager
+            jetstack/cert-manager	  v1.2.0       	  v1.2.0     	    A Helm chart for cert-manager
 
     Check the state and ensure that all pods are running fine (watch out for any issues regarding the `cert-manager-webhook-` pod  and its volume mounts):
 
@@ -145,7 +144,7 @@ TEST_ZONE_NAME=example.com. DNS_NAME=example.com go test -v .
 [DuckDNS]: https://www.duckdns.org
 [DuckDNS API]: https://www.duckdns.org/spec.jsp
 [Helm]: https://helm.sh
-[image tags]: https://hub.docker.com/repository/docker/ebrianne/cert-manager-webhook-duckdns
+[image tags]: https://hub.docker.com/r/lalberslz4/cert-manager-webhook-duckdns
 [Kubernetes]: https://kubernetes.io/
 [RBAC Authorization]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 [setting-nameservers-for-dns01-self-check]: https://cert-manager.io/docs/configuration/acme/dns01/#setting-nameservers-for-dns01-self-check
