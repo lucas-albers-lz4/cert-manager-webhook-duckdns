@@ -21,7 +21,7 @@ Ready made images are hosted on Docker Hub ([image tags]). Use at your own risk:
     lalberslz4/cert-manager-webhook-duckdns
 
 ## More current Images (Updated weekly)
-Rebult with alpine 3.21 and go 1.24 (add to helm command below)
+Rebuilt with alpine 3.21 and go 1.24 (add to helm command below)
 
     --set image.repository=lalberslz4/cert-manager-webhook-duckdns \
     --set image.tag=alpine3.21
