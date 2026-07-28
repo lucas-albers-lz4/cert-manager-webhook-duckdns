@@ -58,7 +58,9 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          platforms: linux/amd64,linux/arm64
+          # PRs: native amd64 only (QEMU arm64 is too slow with the modern
+          # cert-manager dependency tree). Master: multi-arch for publish.
+          platforms: ${{ github.event_name == 'pull_request' && 'linux/amd64' || 'linux/amd64,linux/arm64' }}
           push: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
           tags: |
             ebrianne/cert-manager-webhook-duckdns:latest
