@@ -4,8 +4,8 @@ import (
 	"os"
 	"testing"
 
+	dns "github.com/cert-manager/cert-manager/test/acme"
 	"github.com/ebrianne/cert-manager-webhook-duckdns/duckdns"
-	"github.com/jetstack/cert-manager/test/acme/dns"
 )
 
 var (
@@ -19,7 +19,6 @@ func TestRunsSuite(t *testing.T) {
 	// ChallengeRequest passed as part of the test cases.
 
 	fixture := dns.NewFixture(duckdns.NewSolver(),
-		dns.SetBinariesPath("__main__/hack/bin"),
 		dns.SetResolvedZone(zone),
 		dns.SetDNSName(dnsname),
 		dns.SetAllowAmbientCredentials(false),
