@@ -19,7 +19,7 @@ jobs:
       charts: ${{ steps.filter.outputs.charts }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - uses: dorny/paths-filter@v3
         id: filter
@@ -37,7 +37,7 @@ jobs:
     if: needs.changes.outputs.go == 'true'
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
